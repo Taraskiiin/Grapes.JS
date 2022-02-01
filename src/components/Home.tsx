@@ -1,10 +1,10 @@
 import React from 'react';
-import Editor from './Editor';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
     return (
         <>
-        <Editor/>
+       <NavLink to='/editor/?page=home'>Edit</NavLink>
         </>
     );
 };

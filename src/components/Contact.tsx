@@ -1,11 +1,11 @@
 import React from 'react';
-import Editor from './Editor';
+import { NavLink } from 'react-router-dom';
 
 const Contact = () => {
     return (
-        <>
-        <Editor/>
-        </>
+        <div>
+        <NavLink to='/editor/?page=contact'>Edit</NavLink>
+        </div>
     );
 };
 
