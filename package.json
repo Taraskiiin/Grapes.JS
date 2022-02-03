@@ -16,8 +16,13 @@
     "grapesjs-blocks-bootstrap4": "^0.2.3",
     "grapesjs-lory-slider": "^0.1.5",
     "grapesjs-preset-webpage": "^0.1.11",
+    "html-react-parser": "^1.4.6",
+    "html-to-jsx": "0.0.4",
+    "html-to-react": "^1.4.8",
+    "html-tsx": "^1.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
@@ -49,6 +54,9 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^7.0.1"
+    "autoprefixer": "^10.4.2",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.18"
   }
 }

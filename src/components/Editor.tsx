@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import grapesjs from "grapesjs";
 import { useQueryParams } from "../hooks/useQueryParams";
+import { useDispatch } from "react-redux";
 
 import "grapesjs/dist/css/grapes.min.css";
 import "grapesjs-preset-webpage/dist/grapesjs-preset-webpage.min.css";
@@ -11,10 +12,16 @@ import "grapesjs-lory-slider/dist/grapesjs-lory-slider.min.js";
 const Editor = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [editor, setEditor] = useState<grapesjs.Editor | null>(null);
-  const [HTMLfromEditor, setHTMLfromEditor] = useState<string>("");
-  const [closeEditor, setCloseEditor] = useState<boolean>(false);
-  const queryParams = useQueryParams();
 
+  const dispatch = useDispatch();
+  const setHTML = (component: string | null, html: any) => {
+    dispatch({
+      type: "SET_HTML",
+      payload: { component, html },
+    });
+  };
+
+  const queryParams = useQueryParams();
   const pageToEdit = queryParams.get("page");
 
   useEffect(() => {
@@ -36,7 +43,6 @@ const Editor = () => {
         canvas: {
           styles: [
             "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css",
-            "https://unpkg.com/grapesjs-rally-widgets/dist/grapesjs-rally-widgets.min.css",
           ],
           scripts: ["https://cdn.tailwindcss.com"],
         },
@@ -46,15 +52,7 @@ const Editor = () => {
 
       //@ts-ignore
       com.add("save", (editor) => {
-        const saveAndExit = async() => {
-          await setHTMLfromEditor(editor.getHtml());
-          setCloseEditor(!closeEditor)
-        }
-       // eslint-disable-next-line no-restricted-globals
-       const res = confirm("A you confirm to save and exit?");
-         res ? 
-          saveAndExit()
-          : setCloseEditor(closeEditor);
+        setHTML(pageToEdit, editor.getHtml());
       });
       pn.addButton("options", {
         id: "save",
@@ -65,8 +63,6 @@ const Editor = () => {
     };
     setEditor(() => putEditorConfigInEditor());
   }, []);
-  console.log(HTMLfromEditor);
-  console.log(closeEditor);
   return (
     <>
       <div id='gjs'></div>
