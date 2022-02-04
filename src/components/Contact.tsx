@@ -4,16 +4,14 @@ import parse from 'html-react-parser';
 import { useSelector } from 'react-redux';
 
 const Contact = () => {
-    const html = useSelector(
-        (store: { getHtml: { component: string | null; html: any } }) =>
-          store.getHtml
+    const editions = useSelector(
+        (store: { setEdit: { component: { component: string | null; html: any; css: any; js: any }} }) =>
+          store.setEdit.component
       );
-      console.log(html)
-
     const [componentName, setComponentName] = useState<string>('contact')
     return (
         <div>
-             {html.component === componentName && parse(html.html)}
+             {editions.component === componentName && parse(editions.html)}
         <NavLink to='/editor/?page=contact'>Edit</NavLink>
         </div>
     );

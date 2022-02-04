@@ -1,13 +1,13 @@
 export const initialState = { component: {}}
 
-const getHtml = (
+const setEdit = (
   state = initialState,
   action: { type: string; payload: {component: {}} }
 ) => {
   const { type, payload } = action;
 
   switch (type) {
-    case "SET_HTML":
+    case "SET_EDIT":
       return {
         ...state,
         component: payload,
@@ -17,4 +17,4 @@ const getHtml = (
   }
 };
 
-export default getHtml;
+export default setEdit;

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import getHtml from "./getHtml";
+import setEdit from "./setEdit";
 
 export default combineReducers({
-  getHtml
+  setEdit
 });

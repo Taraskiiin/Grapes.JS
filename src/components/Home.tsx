@@ -4,17 +4,15 @@ import { NavLink } from 'react-router-dom';
 import parse from 'html-react-parser';
 
 const Home = () => {
-    const html = useSelector(
-        (store: { getHtml: { component: string | null; html: any } }) =>
-          store.getHtml
+    const editions = useSelector(
+        (store: { setEdit: { component: { component: string | null; html: any; css: any; js: any }}}) =>
+          store.setEdit.component
       );
-      console.log(html)
-
     const [componentName, setComponentName] = useState<string>('home')
-
+    console.log(editions.component, editions.css, editions.html, editions.js)
     return (
         <>
-         {html.component === componentName && parse(html.html)}
+         {/* {editions === componentName && parse(editions)} */}
        <NavLink to='/editor/?page=home'>Edit</NavLink>
         </>
     );

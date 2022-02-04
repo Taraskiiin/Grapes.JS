@@ -14,10 +14,10 @@ const Editor = () => {
   const [editor, setEditor] = useState<grapesjs.Editor | null>(null);
 
   const dispatch = useDispatch();
-  const setHTML = (component: string | null, html: any) => {
+  const setEdit = (component: string | null, html: any, css: any, js: any) => {
     dispatch({
-      type: "SET_HTML",
-      payload: { component, html },
+      type: "SET_EDIT",
+      payload: { component, html, css, js },
     });
   };
 
@@ -51,9 +51,10 @@ const Editor = () => {
       const com = editor.Commands;
 
       //@ts-ignore
-      com.add("save", (editor) => {
-        setHTML(pageToEdit, editor.getHtml());
+      com.add("save", async(editor) => {
+        await setEdit(pageToEdit, editor.getHtml(), editor.getCss(), editor.getJs());
       });
+
       pn.addButton("options", {
         id: "save",
         className: "fa fa-floppy-o",
