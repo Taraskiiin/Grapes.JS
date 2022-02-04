@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import parse from 'html-react-parser';
+import parseHTML from 'html-react-parser';
+import { css, Styled } from 'react-css-in-js';
+
 
 const Home = () => {
     const editions = useSelector(
@@ -9,12 +11,12 @@ const Home = () => {
           store.setEdit.component
       );
     const [componentName, setComponentName] = useState<string>('home')
-    console.log(editions.component, editions.css, editions.html, editions.js)
     return (
-        <>
-         {/* {editions === componentName && parse(editions)} */}
+        <Styled>
+         {editions.component === componentName && css`${editions.css}`}
+         {editions.component === componentName && parseHTML(editions.html)}
        <NavLink to='/editor/?page=home'>Edit</NavLink>
-        </>
+        </Styled>
     );
 };
 
