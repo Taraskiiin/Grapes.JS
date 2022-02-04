@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Grapes.JS/static/css/main.bd4622fa.css",
+    "main.js": "/Grapes.JS/static/js/main.f00b65f3.js",
+    "static/media/main-fonts.svg?v=20": "/Grapes.JS/static/media/main-fonts.404be73e1ad40b1da282.svg",
+    "static/media/main-fonts.eot?v=20": "/Grapes.JS/static/media/main-fonts.b8dc46886b7e216a02be.eot",
+    "static/media/main-fonts.ttf?v=20": "/Grapes.JS/static/media/main-fonts.4d0a76596dbbbfbfe5ee.ttf",
+    "static/media/main-fonts.woff?v=20": "/Grapes.JS/static/media/main-fonts.dbf9ed7d53cfa8f73da7.woff",
+    "index.html": "/Grapes.JS/index.html",
+    "main.bd4622fa.css.map": "/Grapes.JS/static/css/main.bd4622fa.css.map",
+    "main.f00b65f3.js.map": "/Grapes.JS/static/js/main.f00b65f3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bd4622fa.css",
+    "static/js/main.f00b65f3.js"
+  ]
+}
