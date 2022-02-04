@@ -10,7 +10,9 @@ const Home = () => {
         (store: { setEdit: { component: { component: string | null; html: any; css: any; js: any }}}) =>
           store.setEdit.component
       );
+
     const [componentName, setComponentName] = useState<string>('home')
+    
     return (
         <Styled>
          {editions.component === componentName && css`${editions.css}`}

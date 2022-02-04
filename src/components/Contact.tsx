@@ -9,12 +9,13 @@ const Contact = () => {
         (store: { setEdit: { component: { component: string | null; html: any; css: any; js: any }} }) =>
           store.setEdit.component
       );
-
+      
     const [componentName, setComponentName] = useState<string>('contact')
+
     return (
         <Styled>
-             {editions.component === componentName && css`${editions.css}`}
-             {editions.component === componentName && parseHTML(editions.html)}
+            {editions.component === componentName && css`${editions.css}`}
+            {editions.component === componentName && parseHTML(editions.html)}
         <NavLink to='/editor/?page=contact'>Edit</NavLink>
         </Styled>
     );
